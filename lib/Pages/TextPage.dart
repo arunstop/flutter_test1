@@ -67,10 +67,9 @@ class _TextPageState extends State<TextPage> {
                   label: Text('Catat'),
                   icon: Icon(Icons.check),
                   onPressed: () {
-                    if(_textController.text==null||_textController.text==''){
-                          myToast(
-                                    msg: 'Catatan masih kosong.',
-                                    danger: true);
+                    if (_textController.text == null ||
+                        _textController.text == '') {
+                      myToast(msg: 'Catatan masih kosong.', danger: true);
                       return;
                     }
                     //add notes
@@ -80,9 +79,8 @@ class _TextPageState extends State<TextPage> {
                       backgroundColor: Colors.grey,
                       content: Text(listNotes.length.toString()),
                     ));
-                     myToast(
-                                    msg: 'Sukses menambah catatan.',
-                                    danger: false);
+                    myToast(msg: 'Sukses menambah catatan.', danger: false);
+                    Navigator.pop(context);
                     //wait 2s to go back to the main page
                     // Timer(
                     //   Duration(seconds: 2),
