@@ -41,7 +41,7 @@ class _MenuPageState extends State<MenuPage> {
                         ),
                         onTap: () {
                           Navigator.pushNamed(context, '/text');
-                          myToast(msg: 'Navigated.', danger: false);
+                          dToast(msg: 'Navigated.', danger: false);
                         },
                       ),
                     ),
@@ -74,12 +74,12 @@ class _MenuPageState extends State<MenuPage> {
                           ],
                         ),
                         onTap: () {
-                          myToast(msg: 'Catatan telah terhapus.', danger: false);
+                          dToast(msg: 'Catatan telah terhapus.', danger: false);
                         },
                       ),
                     ),
                     Text(
-                          'Diagnose',
+                          'See Doctors',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.blue,

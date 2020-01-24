@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:test1_botomnav/UI/StandardUI.dart';
 
-var myToast = ({
+dToast({
   String msg,
   bool danger = false,
 }) {
@@ -19,14 +19,16 @@ var myToast = ({
       backgroundColor: bgColor,
       textColor: Colors.white,
       fontSize: 16.0);
-};
+}
 
-var iosDialog = ({
-  BuildContext context,
-  String title,
-  String content,
+dIosOptDialog({
+  @required BuildContext context,
+  String title = 'Option Dialog',
+  Widget content,
   bool danger = false,
-  Function action,
+  String labelN = 'CANCEL',
+  String labelY = 'OK',
+  @required Function action,
 }) {
   Color bgColor = Colors.blue[400];
   if (danger) bgColor = Colors.red[400];
@@ -35,12 +37,12 @@ var iosDialog = ({
       builder: (BuildContext context) {
         return CupertinoAlertDialog(
           title: Text(
-            title,
+            title+"\n",
             style: TextStyle(
               color: bgColor,
             ),
           ),
-          content: Text(content),
+          content: content,
           actions: <Widget>[
             Container(
               color: bgColor,
@@ -58,14 +60,16 @@ var iosDialog = ({
           ],
         );
       });
-};
+}
 
-var androidDialog = ({
-  BuildContext context,
-  String title,
-  String content,
+dAndroidOptDialog({
+  @required BuildContext context,
+  String title = 'Option Dialog',
+  Widget content,
   bool danger = false,
-  Function action,
+  String labelN = 'CANCEL',
+  String labelY = 'OK',
+  @required Function action,
 }) {
   Color mainColor = (danger ? Colors.red[400] : Colors.blue[400]);
   showDialog(
@@ -77,11 +81,11 @@ var androidDialog = ({
             title,
             style: TextStyle(color: mainColor),
           ),
-          content: Text(content),
+          content: content,
           actions: <Widget>[
             FlatButton(
               textColor: Colors.black,
-              child: Text('CANCEL'),
+              child: Text(labelN),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -90,7 +94,7 @@ var androidDialog = ({
               shape: roundedBorder(12),
               color: mainColor,
               elevation: 0,
-              child: Text('OK'),
+              child: Text(labelY),
               onPressed: () {
                 action();
               },
@@ -98,10 +102,10 @@ var androidDialog = ({
           ],
         );
       });
-};
+}
 
-var bottomSheetDialog = ({
-  BuildContext context,
+bottomSheetDialog({
+  @required BuildContext context,
   String title,
   Widget content,
 }) {
@@ -156,4 +160,4 @@ var bottomSheetDialog = ({
       );
     },
   );
-};
+}

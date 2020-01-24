@@ -40,17 +40,17 @@ class _ListPageState extends State<ListPage> {
           IconButton(
             icon: Icon(Icons.delete_outline),
             onPressed: () {
-              iosDialog(
+              dIosOptDialog(
                 context: context,
                 title: 'Delete All',
                 content:
-                    'Aksi ini akan menghapus semua catatan anda, apakah anda ingin melakukannya?',
+                    Text('Aksi ini akan menghapus semua catatan anda, apakah anda ingin melakukannya?'),
                 danger: true,
                 action: () {
                   listNotes.clear();
                   Navigator.pop(context);
                   setState(() {
-                    myToast(
+                    dToast(
                       msg: 'Semua catatan terhapus.',
                       danger: false,
                     );
@@ -77,14 +77,14 @@ class _ListPageState extends State<ListPage> {
                         customBorder: roundedBorder(60),
                         splashColor: destination.color[300],
                         onLongPress: () {
-                          androidDialog(
+                          dAndroidOptDialog(
                             context: context,
                             title: 'Hapus Catatan ?',
-                            content: 'Apakah anda ingin menghapus catatan?',
+                            content: Text('Apakah anda ingin menghapus catatan?'),
                             danger: true,
                             action: () {
                               listNotes.remove(note);
-                              myToast(
+                              dToast(
                                   msg: 'Catatan telah terhapus.',
                                   danger: false);
                               Navigator.pop(context);

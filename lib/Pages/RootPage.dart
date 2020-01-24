@@ -5,35 +5,37 @@ import '../destination.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({Key key, this.destination}) : super(key: key);
+
 // Navigator.pushNamed(context, "/list");
   final Destination destination;
 
   @override
   Widget build(BuildContext context) {
     var accountInfo = Card(
-        child: Column(
-      children: <Widget>[
-        ListTile(
-          leading: CachedNetworkImage(
-            width: 60,
-            height: 60,
-            imageUrl: 'https://img.icons8.com/bubbles/2x/google-logo.png',
-            placeholder: (context, url) => CircularProgressIndicator(),
-            errorWidget: (context, url, error) => Icon(Icons.error, size: 60),
-          ),
-          title: Text(
-            "Arunseto",
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          subtitle: Text(
-            "arunstop@gmail.com",
-            style: TextStyle(
-                decoration: TextDecoration.underline,
-                fontStyle: FontStyle.italic),
-          ),
-        )
-      ],
-    ));
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: CachedNetworkImage(
+              width: 60,
+              height: 60,
+              imageUrl: 'https://img.icons8.com/bubbles/2x/google-logo.png',
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error, size: 60),
+            ),
+            title: Text(
+              "Arunseto",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            subtitle: Text(
+              "arunstop@gmail.com",
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontStyle: FontStyle.italic),
+            ),
+          )
+        ],
+      ),
+    );
 
     return Scaffold(
       appBar: AppBar(

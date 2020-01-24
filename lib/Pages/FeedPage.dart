@@ -33,18 +33,18 @@ class _FeedPageState extends State<FeedPage> {
           Navigator.pushNamed(context, '/list');
         },
         longAction: () {
-          iosDialog(
+          dIosOptDialog(
             context: context,
             title: 'Delete',
             content:
-                'Aksi ini akan menghapus berita yang anda pilih, lakukan?',
+                Text('Aksi ini akan menghapus berita yang anda pilih, lakukan?'),
             danger: true,
             action: () {
               listNews.remove(listNews[i]);
               Navigator.pop(context);
               setState(() {
                 limit = listNews.length;
-                myToast(
+                dToast(
                   msg: 'Berita terhapus.',
                   danger: false,
                 );
